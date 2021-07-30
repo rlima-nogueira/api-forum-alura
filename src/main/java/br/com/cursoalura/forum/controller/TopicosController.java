@@ -14,11 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import br.com.cursoalura.forum.controller.dto.DetalhesTopicoDTO;
+import br.com.cursoalura.forum.controller.dto.TopicoDTO;
 import br.com.cursoalura.forum.model.Curso;
 import br.com.cursoalura.forum.model.Topico;
 import br.com.cursoalura.forum.repository.TopicoRepository;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -51,6 +54,13 @@ public class TopicosController {
 
         URI uri = uriBuilder.path("/topicos/[id]").buildAndExpand(topico.getId()).toUri(); //
         return ResponseEntity.created(uri).body(new TopicoDTO(topico));
+    }
+
+    @GetMapping("/{id}")
+    public DetalhesTopicoDTO detalhar(@PathVariable Long id) {
+        Topico topico = topicoRepository.getById(id);
+
+        return new DetalhesTopicoDTO(topico);
     }
     
 }
