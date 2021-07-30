@@ -1,7 +1,5 @@
 package br.com.cursoalura.forum.controller.form;
 
-import java.util.Optional;
-
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -35,13 +33,13 @@ public class AtualizacaoTopicoForm {
         this.mensagem = mensagem;
     }
 
-    public Optional<Topico> atualizar(Long id, TopicoRepository topicoRepository) {
-        Optional<Topico> optional = topicoRepository.findById(id);
+    public Topico atualizar(Long id, TopicoRepository topicoRepository) {
+        Topico topico = topicoRepository.getById(id);
         
-        optional.get().setTitulo(this.titulo);
-        optional.get().setMensagem(this.mensagem);
+        topico.setTitulo(this.titulo);
+        topico.setMensagem(this.mensagem);
         
-        return optional;
+        return topico;
     }
     
 }
