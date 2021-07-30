@@ -1,4 +1,4 @@
-package br.com.cursoalura.forum.controller;
+package br.com.cursoalura.forum.controller.form;
 
 
 
@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
+import br.com.cursoalura.forum.controller.CursoRepository;
 import br.com.cursoalura.forum.model.Curso;
 import br.com.cursoalura.forum.model.Topico;
 
