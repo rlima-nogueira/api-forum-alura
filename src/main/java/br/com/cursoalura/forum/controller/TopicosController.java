@@ -2,6 +2,7 @@ package br.com.cursoalura.forum.controller;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,9 +19,14 @@ public class TopicosController {
     private TopicoRepository topicoRepository;
     
     @RequestMapping("/topicos")
-    public List<TopicoDTO> lista() {
-        List<Topico> topicos = topicoRepository.findAll();
+    public List<TopicoDTO> lista(String nomeCurso) {
 
-        return TopicoDTO.converter(topicos);
+        if (Objects.isNull(nomeCurso)) {
+            List<Topico> topicos = topicoRepository.findAll();
+            return TopicoDTO.converter(topicos);
+        } else {
+            List<Topico> topicos = topicoRepository.findByCurso_Nome(nomeCurso);
+            return TopicoDTO.converter(topicos);
+        }
     }
 }
