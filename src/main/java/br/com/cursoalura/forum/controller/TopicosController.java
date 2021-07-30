@@ -22,6 +22,8 @@ import br.com.cursoalura.forum.controller.form.TopicoForm;
 import br.com.cursoalura.forum.model.Curso;
 import br.com.cursoalura.forum.model.Topico;
 import br.com.cursoalura.forum.repository.TopicoRepository;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +35,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/topicos")
+@Api(value="Topicos")
 public class TopicosController {
 
     @Autowired
@@ -40,6 +43,7 @@ public class TopicosController {
     @Autowired
     private CursoRepository cursoRepository;
     
+    @ApiOperation(value = "Mostra todos os tópicos")
     @GetMapping
     public List<TopicoDTO> lista(String nomeCurso) {
 
@@ -52,6 +56,7 @@ public class TopicosController {
         }
     }
 
+    @ApiOperation(value = "Cria um novo tópico")
     @PostMapping
     @Transactional
     public ResponseEntity<TopicoDTO> cadastrar(@RequestBody @Valid TopicoForm form, UriComponentsBuilder uriBuilder) {
@@ -62,6 +67,7 @@ public class TopicosController {
         return ResponseEntity.created(uri).body(new TopicoDTO(topico));
     }
 
+    @ApiOperation(value = "Busca um tópico específico")
     @GetMapping("/{id}")
     public ResponseEntity<DetalhesTopicoDTO> detalhar(@PathVariable Long id) {
         Optional<Topico> topico = topicoRepository.findById(id);
@@ -73,6 +79,7 @@ public class TopicosController {
         return ResponseEntity.notFound().build();
     }
 
+    @ApiOperation(value = "Altera um tópico já existente")
     @PutMapping("/{id}")
     @Transactional
     public ResponseEntity<TopicoDTO> atualizar(@PathVariable Long id, @RequestBody @Valid AtualizacaoTopicoForm form) {
@@ -86,6 +93,7 @@ public class TopicosController {
         return ResponseEntity.notFound().build();
     }
     
+    @ApiOperation(value = "Deleta um tópico")
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity<?> remover(@PathVariable Long id) {
