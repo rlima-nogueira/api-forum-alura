@@ -1,8 +1,6 @@
 package br.com.cursoalura.forum.controller;
 
 import java.net.URI;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -12,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.web.PageableDefault;
@@ -21,13 +18,12 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.util.UriBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.cursoalura.forum.controller.dto.DetalhesTopicoDTO;
+import br.com.cursoalura.forum.controller.dto.TopicoDTO;
 import br.com.cursoalura.forum.controller.form.AtualizacaoTopicoForm;
 import br.com.cursoalura.forum.controller.form.TopicoForm;
-import br.com.cursoalura.forum.model.Curso;
 import br.com.cursoalura.forum.model.Topico;
 import br.com.cursoalura.forum.repository.TopicoRepository;
 import io.swagger.annotations.Api;
