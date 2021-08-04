@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.cursoalura.forum.config.security.TokenService;
 import br.com.cursoalura.forum.controller.dto.TokenDTO;
 import br.com.cursoalura.forum.controller.form.LoginForm;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/auth")
@@ -26,6 +27,7 @@ public class AutenticacaoController {
     @Autowired
     private TokenService tokenService;
 
+    @ApiOperation(value = "Gera o token jwt de autenticação")
     @PostMapping
     public ResponseEntity<?> autenticar(@RequestBody @Valid LoginForm form) {
         UsernamePasswordAuthenticationToken dadosLogin = form.converter();

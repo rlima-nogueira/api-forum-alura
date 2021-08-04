@@ -25,6 +25,7 @@ import br.com.cursoalura.forum.controller.dto.TopicoDTO;
 import br.com.cursoalura.forum.controller.form.AtualizacaoTopicoForm;
 import br.com.cursoalura.forum.controller.form.TopicoForm;
 import br.com.cursoalura.forum.model.Topico;
+import br.com.cursoalura.forum.repository.CursoRepository;
 import br.com.cursoalura.forum.repository.TopicoRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

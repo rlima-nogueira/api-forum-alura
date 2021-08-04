@@ -7,9 +7,9 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
-import br.com.cursoalura.forum.controller.CursoRepository;
 import br.com.cursoalura.forum.model.Curso;
 import br.com.cursoalura.forum.model.Topico;
+import br.com.cursoalura.forum.repository.CursoRepository;
 
 public class TopicoForm {
 
