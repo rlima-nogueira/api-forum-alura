@@ -97,6 +97,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>Forum_Curso_Alura</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
