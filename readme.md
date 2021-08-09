@@ -55,4 +55,26 @@ SET FORUM_JWT_SECRET=123456
 ```
 
 
+```
+heroku login
+```
+```
+heroku container:login
+```
+```
+heroku create <nome-aplicacao>
+```
+```
+heroku git:remote -a <nome-aplicacao>
+```
+```
+heroku container:push web
+```
+```
+heroku container:release web
+```
+```
+heroku open
+```
+
 
