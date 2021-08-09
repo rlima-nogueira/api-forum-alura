@@ -22,7 +22,7 @@ Adicione esse linha ao json dentro do bloco que tenha o main class da sua aplica
 
 Passando variaveis de ambiente, use uma das opções abaixo rodando direto no terminal
 
-1. Opção 
+1. Opção  (linux/mac)
 ```
 export FORUM_DATABASE_URL=jdbc:h2:mem:alura-forum
 export FORUM_DATABASE_USERNAME=sa
@@ -31,7 +31,7 @@ export FORUM_JWT_SECRET=123456
 
 ``` 
 
-2. Opção
+2. Opção (windows/linux/mac)
 ```
 java -jar Dspring.profiles.active=prod 
 -DFORUM_DATABASE_URL=jdbc:h2:mem:alura-forum
@@ -41,7 +41,18 @@ java -jar Dspring.profiles.active=prod
  <nome do arquivo .jar>.jar - 
 ```
 
+3. Opção (windows)
+```
+SET FORUM_DATABASE_URL=jdbc:h2:mem:alura-forum
+SET FORUM_DATABASE_USERNAME=sa
+SET FORUM_DATABASE_PASSWORD=
+SET FORUM_JWT_SECRET=123456
+```
+
 ``` 
     docker run -p 8080:8080 -e SPRING_PROFILES_ACTIVE='prod' -e FORUM_DATABASE_URL='jdbc:h2:mem:alura-forum' -e FORUM_DATABASE_USERNAME='sa' -e FORUM_DATABASE_PASSWORD='' -e FORUM_JWT_SECRET='123456' alura/forum
 
 ```
+
+
+
